@@ -12,11 +12,11 @@ namespace Test1
             string message = "Testing sending multiple Emails";
             List<string> recievers = new List<string>();
             recievers.Add("");
-            recievers.Add("");
-            recievers.Add("");
+            //recievers.Add("");
+            //recievers.Add("");
             Email(message, recievers);
         }
-        public static void Email(string htmlString,List<string> recievers)
+        public static void Email(string messageString, List<string> recievers)
         {
             try
             {
@@ -31,8 +31,8 @@ namespace Test1
                     message.To.Add(new MailAddress(reciever));
                 }
                 message.Subject = "Test";
-                message.IsBodyHtml = true; //to make message body as html  
-                message.Body = htmlString;
+                //message.IsBodyHtml = true; //to make message body as html  
+                message.Body = messageString;
                 smtp.Port = 587;
                 smtp.Host = "smtp.gmail.com"; //for gmail host  
                 smtp.EnableSsl = true;
