@@ -11,9 +11,9 @@ namespace Test1
         {
             string message = "Testing sending multiple Emails";
             List<string> recievers = new List<string>();
-            recievers.Add("jacob13madvig@gmail.com");
-            recievers.Add("jacob97madvig@gmail.com");
-            recievers.Add("jacob-madvig@hotmail.com");
+            recievers.Add("");
+            recievers.Add("");
+            recievers.Add("");
             Email(message, recievers);
         }
         public static void Email(string htmlString,List<string> recievers)
@@ -22,7 +22,8 @@ namespace Test1
             {
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
-                string FromMail = "TestingEmailProgram123@gmail.com";
+                string FromMail = "";
+                string FromMailPW = "";
                 message.From = new MailAddress(FromMail);
                 //message.To.Add(new MailAddress("jacob-madvig@hotmail.com"));
                 foreach (var reciever in recievers)
@@ -36,7 +37,7 @@ namespace Test1
                 smtp.Host = "smtp.gmail.com"; //for gmail host  
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential(FromMail, "vxWaG3BUAHFbd8E2");
+                smtp.Credentials = new NetworkCredential(FromMail, FromMailPW);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 Console.WriteLine("email(s) sent");
