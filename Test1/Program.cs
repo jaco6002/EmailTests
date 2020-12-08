@@ -25,7 +25,7 @@ namespace Test1
                 string FromMail = "";
                 string FromMailPW = "";
                 message.From = new MailAddress(FromMail);
-                //message.To.Add(new MailAddress("jacob-madvig@hotmail.com"));
+                //message.To.Add(new MailAddress(""));
                 foreach (var reciever in recievers)
                 {
                     message.To.Add(new MailAddress(reciever));
