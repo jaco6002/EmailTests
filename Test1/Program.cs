@@ -8,15 +8,16 @@ namespace Test1
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            string message = "Testing sending multiple Emails";
+            string message = "mail i want to read from pop";
             List<string> recievers = new List<string>();
             recievers.Add("");
             //recievers.Add("");
             //recievers.Add("");
-            //Email(message, recievers);
-            EmailWithAttachment(message, recievers);
+            Email(message, recievers);
+            //EmailWithAttachment(message, recievers);
         }
         public static void Email(string messageString, List<string> recievers)
         {
@@ -32,7 +33,7 @@ namespace Test1
                 {
                     message.To.Add(new MailAddress(reciever));
                 }
-                message.Subject = "Test";
+                message.Subject = "Testing";
                 //message.IsBodyHtml = true; //to make message body as html  
                 message.Body = messageString;
                 smtp.Port = 587;
